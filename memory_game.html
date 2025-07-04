@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória FMP</title>
+    <link rel="stylesheet" href="memory_game.css">
+    <link rel="icon" href="Bandeira_Palhoça.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo_fmp.jpg" alt="Logo Faculdade Municipal de Palhoça" class="logo-fmp">
+            <img src="Bandeira_Palhoça.png" alt="Bandeira de Palhoça" class="bandeira-palhoca">
+        </div>
+        <h1>Jogo da Memória</h1>
+        <div class="header-buttons">
+            <button id="theme-toggle" class="theme-toggle">Tema: Espaço</button>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <div id="main-game-options-screen" class="screen active">
+            <h2>Escolha a Dificuldade:</h2>
+            <div class="difficulty-options">
+                <button id="easy-difficulty" data-difficulty="easy">Fácil (4 pares)</button>
+                <button id="medium-difficulty" data-difficulty="medium">Médio (6 pares)</button>
+                <button id="hard-difficulty" data-difficulty="hard">Difícil (9 pares)</button>
+            </div>
+            <div class="button-group" style="margin-top: 30px;">
+                <button id="back-to-quiz-button" class="secondary-button">Voltar ao Quiz</button>
+            </div>
+        </div>
+
+        <div id="game-play-screen" class="screen">
+            <div class="game-info">
+                <p>Tentativas: <span id="attempts-count">0</span></p>
+                <p>Pares Encontrados: <span id="matched-pairs-count">0</span></p>
+            </div>
+            <div id="game-board" class="game-board">
+                </div>
+            <button id="reset-game-button" class="secondary-button">Reiniciar Fase</button>
+            <button id="return-to-options-button" class="tertiary-button">Voltar às Opções</button>
+        </div>
+
+        </main>
+
+    <script src="memory_game.js"></script>
+</body>
+</html>

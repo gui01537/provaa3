@@ -1,0 +1,471 @@
+/* Variáveis de cores e imagens para o modo claro */
+:root {
+    --background-color-light: #f4f7f6;
+    --text-color-light: #333;
+    --card-background-light: #ffffff;
+    --button-background-light: #4CAF50; /* Verde principal */
+    --button-hover-light: #45a049;
+    --secondary-button-light: #007bff; /* Azul para botão secundário */
+    --secondary-hover-light: #0056b3;
+    --tertiary-button-light: #f44336; /* Vermelho para botão de sair */
+    --tertiary-hover-light: #da190b;
+    --border-color-light: #ddd;
+    --timer-color-light: #2196F3; /* Azul para timer */
+    --correct-answer-light: #8bc34a;
+    --wrong-answer-light: #f44336;
+
+    /* IMAGENS DE FUNDO - MODO CLARO */
+    --body-background-image-light: url('cidade_clara2.webp');
+    --quiz-container-background-image-light: url('city_light.jpg');
+}
+
+/* Variáveis de cores e imagens para o modo escuro */
+[data-theme='dark'] {
+    --background-color-dark: #2c2c2c;
+    --text-color-dark: #f4f7f6;
+    --card-background-dark: #3a3a3a;
+    --button-background-dark: #673AB7; /* Roxo principal */
+    --button-hover-dark: #5e35b1;
+    --secondary-button-dark: #20c997; /* Ciano para botão secundário */
+    --secondary-hover-dark: #17a2b8;
+    --tertiary-button-dark: #E91E63; /* Rosa para botão de sair */
+    --tertiary-hover-dark: #c2185b;
+    --border-color-dark: #555;
+    --timer-color-dark: #FFC107; /* Amarelo para timer */
+    --correct-answer-dark: #4CAF50;
+    --wrong-answer-dark: #E91E63;
+
+    /* IMAGENS DE FUNDO - MODO ESCURO */
+    --body-background-image-dark: url('cidade_escura.webp');
+    --quiz-container-background-image-dark: url('city_dark.jpg');
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Estilos para o fundo geral do BODY */
+    background-color: var(--background-color-light);
+    background-image: var(--body-background-image-light);
+    background-size: cover; /* COBRE A TELA TODA, CORTANDO SE NECESSÁRIO */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-color-light);
+}
+
+body[data-theme='dark'] {
+    background-color: var(--background-color-dark);
+    background-image: var(--body-background-image-dark);
+    color: var(--text-color-dark);
+}
+
+/* Classe para desligar imagens de fundo */
+body.no-images {
+    background-image: none !important; /* Desliga a imagem de fundo do body */
+}
+
+.header {
+    width: 100%;
+    background-color: var(--card-background-light);
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body[data-theme='dark'] .header {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+body[data-theme='dark'] .header h1 {
+    color: var(--text-color-dark);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-fmp {
+    height: 50px;
+    width: auto;
+}
+
+.bandeira-palhoca {
+    height: 40px;
+    width: auto;
+    border: 1px solid var(--border-color-light);
+    border-radius: 5px;
+}
+
+body[data-theme='dark'] .bandeira-palhoca {
+    border-color: var(--border-color-dark);
+}
+
+/* Container para os botões do cabeçalho */
+.header-buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite quebrar linha se a tela for pequena */
+    justify-content: flex-end; /* Alinha à direita */
+}
+
+.theme-toggle {
+    background-color: var(--button-background-light);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-2px);
+}
+
+body[data-theme='dark'] .theme-toggle {
+    background-color: var(--button-background-dark);
+}
+
+body[data-theme='dark'] .theme-toggle:hover {
+    background-color: var(--button-hover-dark);
+}
+
+/* Estilo para o novo botão de imagens (pode ser o mesmo ou levemente diferente) */
+.secondary-header-button {
+    background-color: #6c757d; /* Um cinza para diferenciar, ou mantenha a cor do tema */
+}
+
+.secondary-header-button:hover {
+    background-color: #5a6268;
+}
+
+body[data-theme='dark'] .secondary-header-button {
+    background-color: #495057; /* Um cinza mais escuro no tema dark */
+}
+
+body[data-theme='dark'] .secondary-header-button:hover {
+    background-color: #343a40;
+}
+
+
+.quiz-container {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* Estilos para o fundo do QUIZ CONTAINER (Imagens de cidade) */
+    background-color: var(--card-background-light); /* Cor de fundo principal */
+    background-image: var(--quiz-container-background-image-light); /* Imagem da cidade modo claro */
+    background-size: contain; /* GARANTE QUE A IMAGEM APAREÇA INTEIRA, SEM DISTORCER */
+    background-position: center;
+    background-repeat: no-repeat; /* Não repete, para não duplicar se houver espaço */
+    background-blend-mode: overlay; /* Mistura a imagem com a cor de fundo */
+    background-attachment: local;
+}
+
+body[data-theme='dark'] .quiz-container {
+    background-color: var(--card-background-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-image: var(--quiz-container-background-image-dark); /* Imagem da cidade modo escuro */
+}
+
+/* Classe para desligar imagens do quiz-container */
+.quiz-container.no-images {
+    background-image: none !important; /* Desliga a imagem de fundo do quiz-container */
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: var(--text-color-light);
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    transition: color 0.3s ease;
+}
+
+body[data-theme='dark'] h2 {
+    color: var(--text-color-dark);
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+body[data-theme='dark'] p {
+    color: var(--text-color-dark);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+@media (min-width: 450px) {
+    .button-group {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+button {
+    background-color: var(--button-background-light);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+button:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+body[data-theme='dark'] button {
+    background-color: var(--button-background-dark);
+}
+
+body[data-theme='dark'] button:hover {
+    background-color: var(--button-hover-dark);
+}
+
+.secondary-button {
+    background-color: var(--secondary-button-light);
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-hover-light);
+}
+
+body[data-theme='dark'] .secondary-button {
+    background-color: var(--secondary-button-dark);
+}
+
+body[data-theme='dark'] .secondary-button:hover {
+    background-color: var(--secondary-hover-dark);
+}
+
+.tertiary-button {
+    background-color: var(--tertiary-button-light);
+}
+
+.tertiary-button:hover {
+    background-color: var(--tertiary-hover-light);
+}
+
+body[data-theme='dark'] .tertiary-button {
+    background-color: var(--tertiary-button-dark);
+}
+
+body[data-theme='dark'] .tertiary-button:hover {
+    background-color: var(--tertiary-hover-dark);
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+@media (min-width: 500px) {
+    .options-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.option-button {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    border: 2px solid var(--border-color-light);
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: left;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+body[data-theme='dark'] .option-button {
+    background-color: var(--card-background-dark);
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+}
+
+.option-button:hover:not(.disabled):not(.correct):not(.wrong) {
+    background-color: var(--border-color-light);
+    transform: scale(1.02);
+}
+
+body[data-theme='dark'] .option-button:hover:not(.disabled):not(.correct):not(.wrong) {
+    background-color: var(--border-color-dark);
+}
+
+.option-button.correct {
+    background-color: var(--correct-answer-light);
+    border-color: var(--correct-answer-light);
+    color: white;
+    font-weight: bold;
+}
+
+body[data-theme='dark'] .option-button.correct {
+    background-color: var(--correct-answer-dark);
+    border-color: var(--correct-answer-dark);
+}
+
+.option-button.wrong {
+    background-color: var(--wrong-answer-light);
+    border-color: var(--wrong-answer-light);
+    color: white;
+    font-weight: bold;
+}
+
+body[data-theme='dark'] .option-button.wrong {
+    background-color: var(--wrong-answer-dark);
+    border-color: var(--wrong-answer-dark);
+}
+
+.option-button.disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.timer-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--border-color-light);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+body[data-theme='dark'] .timer-bar-container {
+    background-color: var(--border-color-dark);
+}
+
+.timer-bar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--timer-color-light);
+    border-radius: 5px;
+}
+
+body[data-theme='dark'] .timer-bar {
+    background-color: var(--timer-color-dark);
+}
+
+.question-number {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+body[data-theme='dark'] .question-number {
+    color: #bbb;
+}
+
+/* Estilos para o Gráfico de Círculo */
+.score-circle-container {
+    width: 150px;
+    height: 150px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.score-circle {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: var(--border-color-light);
+    stroke-width: 3.8;
+}
+
+body[data-theme='dark'] .circle-bg {
+    stroke: var(--border-color-dark);
+}
+
+.circle-progress {
+    fill: none;
+    stroke: var(--button-background-light);
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.8s ease-out;
+}
+
+body[data-theme='dark'] .circle-progress {
+    stroke: var(--button-background-dark);
+}
+
+.score-text {
+    fill: var(--text-color-light);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.7em;
+    text-anchor: middle;
+    transition: fill 0.3s ease;
+}
+
+body[data-theme='dark'] .score-text {
+    fill: var(--text-color-dark);
+}
